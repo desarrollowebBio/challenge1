@@ -1,0 +1,275 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+background-color: #F3F5FC;
+}
+
+/* contenedor principal contiene a contenido y resultado */
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* footer */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    flex: 100%;
+    background-color: #F3F5FC;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 13px;
+}
+
+footer img{
+    width: 20px;
+    height: 20px;
+}
+
+header{
+    flex: 100%;
+    background-color: #F3F5FC;
+    text-align: center;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 20px;
+}
+
+/* contenido es donde van el logo, el textarea y los dos botones de encriptacion */
+.contenido{
+    background-color: #F3F5FC;;
+    padding: 10px;
+    flex: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.resultado{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: #F3F5FC;
+    padding: 10px;
+    flex: 35%;
+}
+
+/* media query para que sea responsive */
+@media(max-width:800px){
+    .contenedor{
+        /*flex-direction: column;*/
+    }
+    .contenido, .resultado{
+        flex: 100%;
+    }
+
+}
+
+/* Le digo que la capa que contiene la imagen logo se vea como flex y se alineen a la izquierda todos sus elementos
+    seguro que se puede hacer de otra forma, pero es la forma más rápida que se me ha ocurrido en estos momentos */
+.logo{
+    display:flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.logo img{
+    width: 80px;
+    height: 80px;
+}
+
+/* Estilo de los botones */
+
+button{
+    border: 2px solid rgb(43,78,124);
+    background-color: lightgray;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;    
+}
+
+/* Un botón es de otro color, encriptar, así que he dado estilo
+    a todos los botones igual, menos a uno que es diferente y lo
+    hago aquí */
+
+#btencriptar{
+    color: lightgray;
+    background-color: rgb(43,78,124);
+}
+
+
+/* Estilo a los textarea */
+#texto1{
+    width: 80%;
+    height: 400px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    background-color: #F3F5FC;
+    resize: none;
+    border-radius: 10px;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 20px;
+}
+
+.capa{
+    background-color: white;
+    width: 300px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 2px rgba(0,0,0,0.3), 0 6px 20px 0 rgba(0,0,0,0.25);
+    margin: 0 auto;
+}
+
+.resultado img{
+    width:100%;
+}
+
+.texto2{
+    display: none;
+}
+#btcopiar{
+    display: none;
+    margin: 0 auto;
+}
+
+main{
+    width: 70%;
+    height: 80%;
+    display: grid;
+    margin: 0 auto;
+}
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#texto2{
+    width: 80%;
+    height: 400px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    background-color: #F3F5FC;
+    resize: none;
+    border-radius: 10px;
+    margin: 0 auto;
+    font-family: 'Times New Roman, Times, serif';
+    font-size: 20px;
+}
+
+.aviso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}
+
+.aviso img{
+    width: 20px;
+    height: 20px;
+}
+
+span{
+    color: rgb(43,78,124);
+}
+
+.info{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.info p{
+    font-size: 14px;
+}
+
+
+/*-------------------- Estilos para la ventana modal -----------------------*/
+
+/* Fondo de la ventana modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; 
+    z-index: 1; /* por encima de todo */
+    padding-top: 100px; /* localización de la capa */
+    left: 0;
+    top: 0;
+    width: 100%; /* anchura y altura total, sino parecería raro */
+    height: 100%; 
+    overflow: auto; /* por si fuera necesario activamos el overflow */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  /* Conenido de la ventana modal */
+  .contenidoModal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Añadimos animación al contenido de la ventana modal */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* Botón de cerrar */
+  .cerrar {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .cerrar:hover, .cerrar:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .encabezadoModal {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .cuerpoModal {
+    padding: 2px 16px;
+    text-align: center;
+    font-family: 'Times New Roman, Times, serif';
+}
+
+.encabezadoModal span{
+    color: red;
+}
+  
+
+  

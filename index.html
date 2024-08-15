@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=(), user-id=()" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
+    <title>Encriptador html-css-javascript</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <main class="contenedor">
+        <header>
+            <div class="logo"><img src="img/logo.png"><h2>ENCRIPTADOR HTML-CSS-JAVASCRIPT</h2></div>
+        </header>
+        <section class="contenido">
+            
+            <div class="texto1"><textarea id="texto1" placeholder="introduce codigo" onfocus="limpiar()"></textarea></div>
+            <div class="aviso"><img src="img/advertencia.png">Sólo letras minúsculas y sin acentos</div>
+            <div class="botones">
+                <button id="btencriptar" onclick="encriptar()">Encriptar</button>
+                <button id="btdesencriptar" onclick="desencriptar()">Desencriptar</button>
+            </div>
+        </section>
+        <aside class="resultado">
+            <div class="capa">
+                <div class="muneco" id="muneco"><img src="img/muneco.svg"></div>
+                <div class="info" id="info">
+                    <h4>Ningún mensaje encontrado</h4>
+                    <p>Ingresa el texto que desees encriptar o desencriptar</p>
+                </div>
+                <!--la verdad es que estoy hasta las narices del css, así que esto es un apaño para bajar la capa
+                ya que lo he intentado con padding, margin etc... y no me va -->
+                <div class="relleno"> <br/>  </div>
+                <div class="texto2" id="texto3"><textarea id="texto2" readonly></textarea></div>
+                <button id="btcopiar" onclick="copiar('texto2')">Copiar</button></div>
+            </div>
+        </aside>
+        <footer>
+            <img src="img/creative.png">Creative Commons Javier Fernández
+        </footer>
+    </main>
+
+   
+<!-- La ventana modal -->
+<div id="miModal" class="modal">
+
+  <!-- Contenido de la ventana modal -->
+  <div class="contenidoModal">
+    <div class="encabezadoModal">
+      <span class="cerrar">&times;</span>
+      <p><span class="material-icons">block</span> Error en el texto</p>
+    </div>
+    <div class="cuerpoModal">
+      <h2>Has introducido algún carácter incorrecto.</h2>
+      <p>Se procederá a corregir los caracteres incorrectos</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
